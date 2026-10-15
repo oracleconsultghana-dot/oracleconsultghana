@@ -1,0 +1,69 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files uploaded in the dashboard are committed to the repository.
+media_folder: "uploads"
+public_folder: "/uploads"
+
+site_url: /
+display_url: /
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "pages"
+    label: "Website content"
+    files:
+      - name: "site"
+        label: "Brand & homepage"
+        file: "content/site.json"
+        format: "json"
+        fields:
+          - { label: "Business name", name: "business_name", widget: "string", default: "ORACLE CONSULT GHANA" }
+          - { label: "Brand subtitle", name: "brand_subtitle", widget: "string", default: "GHANA · CONSULTING & SUPPORT" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - { label: "Hero introduction", name: "hero_intro", widget: "text" }
+          - { label: "About us", name: "about_text", widget: "text" }
+          - { label: "Contact email", name: "email", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Announcement bar", name: "announcement", widget: "string", required: false }
+      - name: "services"
+        label: "Services"
+        file: "content/services.json"
+        format: "json"
+        fields:
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Service title", name: "title", widget: "string" }
+              - { label: "Category label", name: "category", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Icon symbol", name: "icon", widget: "string", required: false }
+              - { label: "Featured service", name: "featured", widget: "boolean", default: false }
+  - name: "blog"
+    label: "Blog posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "insights/{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Cover image", name: "cover", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+  - name: "uploads"
+    label: "Media library"
+    folder: "content/media"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text", required: false }

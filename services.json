@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Business consulting",
+      "category": "01 / ADVISORY",
+      "description": "Practical guidance to help you organise, improve and grow your business with purpose.",
+      "icon": "⌘",
+      "featured": false
+    },
+    {
+      "title": "IT & digital support",
+      "category": "02 / TECHNOLOGY",
+      "description": "Technology support, digital tools and smarter workflows that make work easier.",
+      "icon": "⌘",
+      "featured": true
+    },
+    {
+      "title": "Projects & solutions",
+      "category": "03 / DEVELOPMENT",
+      "description": "Reliable support to shape ideas into organised projects and meaningful outcomes.",
+      "icon": "✳",
+      "featured": false
+    }
+  ]
+}
